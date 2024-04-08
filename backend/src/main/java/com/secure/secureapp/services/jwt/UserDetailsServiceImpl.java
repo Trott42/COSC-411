@@ -1,8 +1,8 @@
 package com.secure.secureapp.services.jwt;
 
 import com.secure.secureapp.Models.Candidate;
-import com.secure.secureapp.Repository.OrderRepository;
-import com.secure.secureapp.Repository.UserRepository;
+import com.secure.secureapp.Repository.EmployeeRepository;
+import com.secure.secureapp.Repository.CandidateRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -15,9 +15,9 @@ import java.util.ArrayList;
 public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
-    private UserRepository userRepository;
+    private CandidateRepository userRepository;
     @Autowired
-    private OrderRepository orderRepository;
+    private EmployeeRepository orderRepository;
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
@@ -27,7 +27,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         if(user == null){
             throw new UsernameNotFoundException("User not found",null);
         }
-        return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), new ArrayList<>());
+        return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getHashedPassword(), new ArrayList<>());
     }
 
     public Candidate findByEmail(String email) {

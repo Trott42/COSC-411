@@ -1,7 +1,7 @@
 package com.secure.secureapp.Controller;
 
-import com.secure.secureapp.dto.OrderDTO;
-import com.secure.secureapp.services.order.OrderService;
+import com.secure.secureapp.dto.ApplicationDTO;
+import com.secure.secureapp.services.application.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class GetOrderController {
+public class GetApplicationController {
 
     @Autowired
     private OrderService orderService;
 
     @GetMapping("/get-order")
-    public ResponseEntity<OrderDTO> getOrder(
+    public ResponseEntity<ApplicationDTO> getOrder(
             @RequestParam String email,
             @RequestParam Long orderNumber
     ) {
@@ -26,7 +26,7 @@ public class GetOrderController {
         }
 
         // Call the service to get the order details
-        OrderDTO orderDTO = orderService.getOrderDetails(email, orderNumber);
+        ApplicationDTO orderDTO = orderService.getOrderDetails(email, orderNumber);
 
         if (orderDTO == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);

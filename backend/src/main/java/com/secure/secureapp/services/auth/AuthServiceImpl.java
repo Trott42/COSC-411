@@ -1,9 +1,8 @@
 package com.secure.secureapp.services.auth;
 
-import com.secure.secureapp.dto.SignupDTO;
-import com.secure.secureapp.dto.UserDTO;
+import com.secure.secureapp.dto.CandidateDTO;
 import com.secure.secureapp.Models.Candidate;
-import com.secure.secureapp.Repository.UserRepository;
+import com.secure.secureapp.Repository.CandidateRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -14,32 +13,32 @@ import java.time.LocalDate;
 public class AuthServiceImpl implements AuthService {
 
     @Autowired
-    private UserRepository userRepository;
+    private CandidateRepository userRepository;
 
     @Override
-    public UserDTO createUser(SignupDTO signupDTO) {
+    public CandidateDTO createUser(CandidateSignupDTO signupDTO) {
         Candidate user = new Candidate();
         user.setFName(signupDTO.getFName());
         user.setLName(signupDTO.getLName());
         user.setEmail(signupDTO.getEmail());
-        user.setPassword(new BCryptPasswordEncoder().encode(signupDTO.getPassword()));
+        user.setHashedPassword(new BCryptPasswordEncoder().encode(signupDTO.getHashedPassword()));
         user.setPhone(signupDTO.getPhone());
         user.setCreateDate(LocalDate.now());
         user.setAddress(signupDTO.getAddress());
         user.setCity(signupDTO.getCity());
         user.setZipCode(signupDTO.getZipCode());
         Candidate createdUser = userRepository.save(user);
-        UserDTO userDTO = new UserDTO();
-        userDTO.setId(createdUser.getId());
-        userDTO.setEmail(createdUser.getEmail());
-        userDTO.setFName(createdUser.getFName());
-        userDTO.setLName(createdUser.getLName());
-        userDTO.setPhone(createdUser.getPhone());
-        userDTO.setAddress(createdUser.getAddress());
-        userDTO.setCity(createdUser.getCity());
-        userDTO.setZipCode(createdUser.getZipcode());
-        userDTO.setCreateDate(createdUser.getCreateDate());
+        CandidateDTO candidateDTO = new CandidateDTO();
+        candidateDTO.setCandidateId(createdUser.getCandidateId());
+        candidateDTO.setEmail(createdUser.getEmail());
+        candidateDTO.setFName(createdUser.getFName());
+        candidateDTO.setLName(createdUser.getLName());
+        candidateDTO.setPhone(createdUser.getPhone());
+        candidateDTO.setAddress(createdUser.getAddress());
+        candidateDTO.setCity(createdUser.getCity());
+        candidateDTO.setZipCode(createdUser.getZipcode());
+        candidateDTO.setCreateDate(createdUser.getCreateDate());
 
-        return userDTO;
+        return candidateDTO;
     }
 }

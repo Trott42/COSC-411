@@ -1,17 +1,14 @@
-package com.secure.secureapp.Models;
+package com.secure.secureapp.dto;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 
-@Entity
 @Data
-public class Employer {
+public class CandidateDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long candidateId;
 
     private String fName;
@@ -66,4 +63,8 @@ public class Employer {
     public long getCandidateId() {return candidateId;}
     public long getResumeId() {return resumeId;}
     public long getApplicationId() {return applicationId;}
+
+    public void setCandidateId(Long candidateId) {
+        this.candidateId = candidateId;
+    }
 }

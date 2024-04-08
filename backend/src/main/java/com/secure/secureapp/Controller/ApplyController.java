@@ -1,10 +1,10 @@
 package com.secure.secureapp.Controller;
 
 import com.secure.secureapp.Models.Candidate;
-import com.secure.secureapp.dto.CreateOrderDTO;
-import com.secure.secureapp.dto.OrderDTO;
+import com.secure.secureapp.dto.ApplyDTO;
+import com.secure.secureapp.dto.ApplicationDTO;
 import com.secure.secureapp.services.jwt.UserDetailsServiceImpl;
-import com.secure.secureapp.services.order.OrderService;
+import com.secure.secureapp.services.application.OrderService;
 import com.secure.secureapp.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-public class CreateOrderController {
+public class ApplyController {
 
     @Autowired
     private OrderService orderService;
@@ -28,8 +28,8 @@ public class CreateOrderController {
     @Autowired
     private JwtUtil jwtUtil;
 
-    @PostMapping("/create-order")
-    public ResponseEntity<?> createOrder(@RequestBody CreateOrderDTO createOrderDTO) {
+    @PostMapping("/apply")
+    public ResponseEntity<?> createOrder(@RequestBody ApplyDTO createOrderDTO) {
         Candidate user = userDetailsService.findByEmail(createOrderDTO.getEmail());
 
         if (user == null) {
@@ -39,7 +39,7 @@ public class CreateOrderController {
 
         String authToken = jwtUtil.generateToken(user.getEmail());
 
-        OrderDTO orderDTO = orderService.createOrder(createOrderDTO);
+        ApplicationDTO orderDTO = orderService.createApplication(createOrderDTO);
         if (orderDTO == null) {
             return new ResponseEntity<>("Order not created, come again later!", HttpStatus.BAD_REQUEST);
         }

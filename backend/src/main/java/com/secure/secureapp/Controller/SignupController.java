@@ -1,8 +1,7 @@
 package com.secure.secureapp.Controller;
 
-import com.secure.secureapp.Repository.UserRepository;
-import com.secure.secureapp.dto.SignupDTO;
-import com.secure.secureapp.dto.UserDTO;
+import com.secure.secureapp.Repository.CandidateRepository;
+import com.secure.secureapp.dto.CandidateDTO;
 import com.secure.secureapp.services.auth.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,10 +15,10 @@ public class SignupController {
 
     @Autowired
     private AuthService authService;
-    private UserRepository userRepository;
+    private CandidateRepository userRepository;
     @PostMapping("/sign-up")
-    public ResponseEntity<?> signupUser(@RequestBody SignupDTO signupDTO) {
-       UserDTO createdUser = authService.createUser(signupDTO);
+    public ResponseEntity<?> signupUser(@RequestBody CandidateSignupDTO signupDTO) {
+       CandidateDTO createdUser = authService.createUser(signupDTO);
 
 
        if (createdUser == null){
