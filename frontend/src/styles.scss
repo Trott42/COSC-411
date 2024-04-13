@@ -1,1 +1,36 @@
-/* You can add global styles to this file, and also import other style files */
+$red: #FD1F4A;
+$yellow: #FBBD0D;
+$black: #2D2C2E;
+$white: #FAF5E6;
+
+* {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: $black;
+}
+
+button {
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 16px;
+  background: $yellow;
+  color: $black;
+  border: none;
+  border-radius: 16px;
+}
+
+button:hover {
+  background: $black;
+  color: $white;
+  transition: 300ms;
+}
+
+button:not(:hover) {
+  transition: 300ms;
+}
