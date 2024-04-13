@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import {HeaderComponent} from "../../app/components/header/header.component";
-import {NavbarComponent} from "../../app/components/navbar/navbar.component";
-import {FooterComponent} from "../../app/components/footer/footer.component";
-import {LoginPopupComponent} from "../../app/components/login-popup/login-popup.component";
-
+import {HeaderComponent} from "../../components/header/header.component";
+import {NavbarComponent} from "../../components/navbar/navbar.component";
+import {FooterComponent} from "../../components/footer/footer.component";
+import {LoginPopupComponent} from "../../components/login-popup/login-popup.component";
 
 @Component({
   selector: 'app-employer-login',
@@ -17,6 +16,6 @@ import {LoginPopupComponent} from "../../app/components/login-popup/login-popup.
   templateUrl: './employer-login.component.html',
   styleUrl: './employer-login.component.scss'
 })
-export class EmployerLoginComponent1 {
+export class EmployerLoginComponent {
 
 }
