@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import {FooterComponent} from "../../components/footer/footer.component";
-import {HeaderComponent} from "../../components/header/header.component";
-import {NavbarComponent} from "../../components/navbar/navbar.component";
-import {AboutBodyComponent} from "../../components/about-body/about-body.component";
+import {FooterComponent} from "../../app/components/footer/footer.component";
+import {HeaderComponent} from "../../app/components/header/header.component";
+import {NavbarComponent} from "../../app/components/navbar/navbar.component";
+import {AboutBodyComponent} from "../../app/components/about-body/about-body.component";
 
 @Component({
   selector: 'app-about-page',

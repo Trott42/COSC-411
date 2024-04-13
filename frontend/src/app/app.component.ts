@@ -1,22 +1,17 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from '../components/header/header.component';
-import { NavbarComponent } from '../components/navbar/navbar.component';
-import { JobPostingComponent } from '../components/job-posting/job-posting.component';
-import { FooterComponent } from '../components/footer/footer.component';
+import { Component, NgZone} from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [
-    RouterOutlet,
-    HeaderComponent,
-    NavbarComponent,
-    FooterComponent,
-    JobPostingComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title = 'test-ss';
+export class AppComponent  {
+  title = 'Test Software Solutions';
+  user = '';
+  constructor(private ngZone: NgZone) {}
+  ngOnInit() {
+    this.ngZone.run(() => {
+    });
+    
+  }
 }
