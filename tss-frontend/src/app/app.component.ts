@@ -4,7 +4,6 @@ import { HeaderComponent } from '../components/header/header.component';
 import { NavbarComponent } from '../components/navbar/navbar.component';
 import { JobPostingComponent } from '../components/job-posting/job-posting.component';
 import { FooterComponent } from '../components/footer/footer.component';
-import { response } from 'express';
 
 @Component({
   selector: 'app-root',
