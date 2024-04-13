@@ -5,11 +5,13 @@ import { AppComponent } from './app.component';
 //import {NgxMaskModule} from 'ngx-mask';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent, 
+    AppComponent,
+   
 
   ],
   imports: [
@@ -18,7 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
     //NgxMaskModule.forRoot(),
     FormsModule,
     ReactiveFormsModule ,
-    HttpClientModule
+    HttpClientModule,
+    FooterComponent 
   ],
   providers: [],
   bootstrap: [AppComponent]
