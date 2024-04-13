@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
   templateUrl: './about-body.component.html',
   styleUrl: './about-body.component.scss'
 })
-export class AboutBodyComponent1 {
+export class AboutBodyComponent {
 
 }
