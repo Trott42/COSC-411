@@ -21,5 +21,12 @@ export const jobs = [
     "Posted forever ago",
     true,
     "Apply to me!"
+  ),
+  new JobPost(
+    "Prompt Engineer",
+    "Los Angeles, California",
+    "Posted March 3rd",
+    true,
+    "Apply to me!"
   )
 ]

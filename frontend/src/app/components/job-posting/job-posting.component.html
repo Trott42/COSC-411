@@ -6,7 +6,9 @@
     </div>
     <div id="application-details">
         <span id="date-posted">{{datePosted}}</span>
-        <button (click)="sidebarService.show()">Apply</button>
+        @if (showButton) {
+          <button (click)="sidebarService.show()">Apply</button>
+        }
     </div>
     @if (sidebarService.visible) {
       <app-sidebar>{{jobDesc}}</app-sidebar>
