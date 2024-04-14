@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SidebarComponent } from '../sidebar/sidebar.component';
-import { SidebarService } from '../sidebar/sidebar.service';
+import { SidebarService } from '../../service/sidebar.service';
 
 @Component({
   selector: 'app-job-posting',
@@ -20,4 +20,5 @@ export class JobPostingComponent {
   @Input() jobTitle!: string;
   @Input() location!: string;
   @Input() datePosted!: string;
+  @Input() showButton!: boolean;
 }

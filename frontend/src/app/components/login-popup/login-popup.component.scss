@@ -5,41 +5,47 @@ $white: #FAF5E6;
 
 
 #container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    margin-top: 67px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 42px;
-    border-radius: 16px;
-    width: 283px;
-    height: 458px;
-    background: $red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 67px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 42px;
+  border-radius: 16px;
+  width: 283px;
+  height: 458px;
+  background: $red;
+}
+
+#submit-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 span {
-    color: $white;
-    font-style: italic;
-    font-size: 42px;
+  color: $white;
+  font-style: italic;
+  font-size: 42px;
 }
 
 form {
-    color: $white;
+  color: $white;
 }
 
-input {
-    margin-top: 26px;
-    margin-bottom: 26px;
-    padding: 6px;
-    outline-width: 0;
-    border: none;
-    border-bottom: 2px solid $white;
-    width: 100%;
-    background: none;
+.text-input {
+  margin-top: 26px;
+  margin-bottom: 26px;
+  padding: 6px;
+  outline-width: 0;
+  border: none;
+  border-bottom: 2px solid $white;
+  width: 100%;
+  background: none;
 }
 
 button {
-    margin: 16px;
+  margin: 16px;
 }

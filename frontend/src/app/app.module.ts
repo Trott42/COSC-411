@@ -7,7 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './components/header/header.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { SidebarService } from './components/sidebar/sidebar.service';
+import { SidebarService } from './service/sidebar.service';
 
 
 @NgModule({

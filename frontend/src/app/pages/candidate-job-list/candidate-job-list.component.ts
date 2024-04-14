@@ -17,5 +17,5 @@ import { JobPostingComponent } from '../../components/job-posting/job-posting.co
   styleUrl: './candidate-job-list.component.scss'
 })
 export class CandidateJobListComponent {
-
+  
 }

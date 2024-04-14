@@ -12,7 +12,7 @@ body {
   background: $black;
 }
 
-button {
+button, .submit {
   text-align: center;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -25,12 +25,12 @@ button {
   border-radius: 16px;
 }
 
-button:hover {
+button:hover, .submit:hover {
   background: $black;
   color: $white;
   transition: 300ms;
 }
 
-button:not(:hover) {
+button:not(:hover), .submit:not(:hover) {
   transition: 300ms;
 }

@@ -4,17 +4,20 @@ $black: #2D2C2E;
 $white: #FAF5E6;
 
 #screen {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background: $black;
   opacity: 75%;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 #container {
-  position: fixed;
+  position: absolute;
   top: 0;
   right: 0;
   display: flex;

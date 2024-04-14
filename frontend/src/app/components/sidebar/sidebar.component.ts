@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { JobPostingComponent } from '../job-posting/job-posting.component';
-import { SidebarService } from './sidebar.service';
+import { SidebarService } from '../../service/sidebar.service';
 
 @Component({
   selector: 'app-sidebar',
