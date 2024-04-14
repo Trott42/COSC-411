@@ -3,7 +3,6 @@ import { HeaderComponent } from '../../components/header/header.component';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { JobPostingComponent } from '../../components/job-posting/job-posting.component';
-import { SidebarComponent } from '../../components/sidebar/sidebar.component';
 
 @Component({
   selector: 'app-candidate-job-list',
@@ -12,8 +11,7 @@ import { SidebarComponent } from '../../components/sidebar/sidebar.component';
     HeaderComponent,
     NavbarComponent,
     FooterComponent,
-    JobPostingComponent,
-    SidebarComponent
+    JobPostingComponent
   ],
   templateUrl: './candidate-job-list.component.html',
   styleUrl: './candidate-job-list.component.scss'

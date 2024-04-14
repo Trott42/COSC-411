@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { JobPostingComponent } from '../job-posting/job-posting.component';
+import { SidebarService } from './sidebar.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -8,5 +10,8 @@ import { Component } from '@angular/core';
   styleUrl: './sidebar.component.scss'
 })
 export class SidebarComponent {
-  
+  public sidebarService: SidebarService
+  constructor(parent: JobPostingComponent) {
+    this.sidebarService = parent.sidebarService;
+  }
 }
