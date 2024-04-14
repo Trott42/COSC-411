@@ -1,5 +1,4 @@
-import { Component, NgZone} from '@angular/core';
-import { FooterComponent } from './components/footer/footer.component';
+import { Component, NgZone } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -12,6 +11,5 @@ export class AppComponent  {
   ngOnInit() {
     this.ngZone.run(() => {
     });
-    
   }
 }

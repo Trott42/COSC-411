@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
+import { SidebarComponent } from '../sidebar/sidebar.component';
 
 @Component({
     selector: 'app-job-posting',
     standalone: true,
-    imports: [],
+    imports: [ SidebarComponent ],
     templateUrl: './job-posting.component.html',
     styleUrl: './job-posting.component.scss'
 })
