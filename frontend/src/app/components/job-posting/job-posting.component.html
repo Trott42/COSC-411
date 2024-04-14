@@ -6,7 +6,9 @@
     </div>
     <div id="application-details">
         <span id="date-posted">{{datePosted}}</span>
-        <button *ngIf="showButton" (click)="sidebarService.show()">Apply</button>
+        <button (click)="sidebarService.show()">Apply</button>
     </div>
-    <app-sidebar *ngIf="sidebarService.visible"><ng-content></ng-content></app-sidebar>
+    @if (sidebarService.visible) {
+      <app-sidebar>{{jobDesc}}</app-sidebar>
+    }
 </div>

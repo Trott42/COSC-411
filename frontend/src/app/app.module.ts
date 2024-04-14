@@ -8,6 +8,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SidebarService } from './service/sidebar.service';
+import { CandidateJobListComponent } from './pages/candidate-job-list/candidate-job-list.component';
 
 
 @NgModule({
@@ -22,7 +23,7 @@ import { SidebarService } from './service/sidebar.service';
     HttpClientModule,
     HeaderComponent,
     NavbarComponent,
-    FooterComponent 
+    FooterComponent
   ],
   providers: [SidebarService],
   bootstrap: [AppComponent]

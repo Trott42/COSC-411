@@ -21,4 +21,5 @@ export class JobPostingComponent {
   @Input() location!: string;
   @Input() datePosted!: string;
   @Input() showButton!: boolean;
+  @Input() jobDesc!: string;
 }

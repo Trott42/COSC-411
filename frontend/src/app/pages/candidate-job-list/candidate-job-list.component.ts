@@ -3,6 +3,7 @@ import { HeaderComponent } from '../../components/header/header.component';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { JobPostingComponent } from '../../components/job-posting/job-posting.component';
+import { jobs } from 'src/app/service/jobs';
 
 @Component({
   selector: 'app-candidate-job-list',
@@ -17,5 +18,5 @@ import { JobPostingComponent } from '../../components/job-posting/job-posting.co
   styleUrl: './candidate-job-list.component.scss'
 })
 export class CandidateJobListComponent {
-  
+  public jobList = jobs;
 }

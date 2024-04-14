@@ -1,6 +1,9 @@
-<app-job-posting 
-  jobTitle="Software Engineer" 
-  location="Ypsilanti, Mi" 
-  datePosted="Posted today"
-  [showButton]=true>
-</app-job-posting>
+@for (job of jobList; track job.jobTitle) {
+  <app-job-posting
+  [jobTitle]=job.jobTitle
+  [location]=job.location
+  [datePosted]=job.datePosted
+  [showButton]=job.showButton
+  [jobDesc]=job.jobDesc>
+  </app-job-posting>
+}
