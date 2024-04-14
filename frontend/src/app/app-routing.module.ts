@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from './pages/home-page/home-page.component';
+import { CandidateLoginComponent } from './pages/candidate-login/candidate-login.component';
 import { EmployerLoginComponent } from './pages/employer-login/employer-login.component';
 import { AboutBodyComponent } from './components/about-body/about-body.component';
 import { CandidateJobListComponent } from './pages/candidate-job-list/candidate-job-list.component';
@@ -9,6 +10,7 @@ import { CandidateDashboardComponent } from './pages/candidate-dashboard/candida
 const routes: Routes = [
   { path: 'home', component: HomePageComponent },
   { path: 'about', component: AboutBodyComponent },
+  { path: 'login', component: CandidateLoginComponent },
   { path: 'employer-login', component: EmployerLoginComponent },
   { path: 'job-list', component: CandidateJobListComponent },
   { path: 'dashboard', component: CandidateDashboardComponent },

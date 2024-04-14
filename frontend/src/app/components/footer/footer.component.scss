@@ -4,12 +4,11 @@ $black: #2D2C2E;
 $white: #FAF5E6;
 
 div {
-    margin-top: 42px;
-    margin-bottom: 0%;
-    padding: 20px;
-    bottom: 0;
-    width: auto;
-    text-align: center;
-    background-color: $yellow;
-    color: $black;
+  position: absolute;
+  bottom: 0;
+  padding: 20px;
+  width: 100%;
+  text-align: center;
+  background-color: $yellow;
+  color: $black;
 }

@@ -1,12 +1,12 @@
 <div id="container">
   <span><ng-content></ng-content></span>
-  <form id="login" action="" type="submit">
-    <input className="text-input" type="text" name="Username"><br>
-    <label for="login">Username</label>
-    <input className="text-input" type="password" name="Password"><br>
-    <label for="login" id="password">Password</label>
+  <form id="login" action="" type="submit" method="post">
+    <input class="text-input" type="text" name="Username"><br>
+    <p>Username</p>
+    <input class="text-input" type="password" name="Password"><br>
+    <p>Password</p>
     <div id="submit-buttons">
-      <input className="submit" type="submit" value="Login">
+      <input type="submit" value="Login">
       <button>Sign Up</button>
     </div>
   </form>
