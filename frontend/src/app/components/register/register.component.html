@@ -1,0 +1,45 @@
+<div id="container">
+    <span><ng-content></ng-content></span>
+    <form (ngSubmit)="onClickSubmit()">
+      <label for="fname">First Name</label>
+      <input type="text" [(ngModel)]="fname" name="fname" class="form-control" placeholder="First Name"><br>
+  
+      <label for="lname">Last Name</label>
+      <input type="text" [(ngModel)]="lname" name="lname" class="form-control" placeholder="Last Name"><br>
+  
+      <label for="phone">Phone</label>
+      <input type="text" [(ngModel)]="phone" name="phone" inputmode="numeric" class="form-control" placeholder="(XXX) XXX-XXXX" mask="(000) 000-0000"><br>
+  
+      <label for="email">Email</label>
+      <input type="text" [(ngModel)]="email" name="email" class="form-control" placeholder="Email"><br>
+  
+      <label for="address">Address</label>
+      <input type="text" [(ngModel)]="address" name="address" class="form-control" placeholder="Address"><br>
+  
+      <label for="city">City</label>
+      <input type="text" [(ngModel)]="city" name="city" class="form-control" placeholder="City"><br>
+  
+      <label for="zipCode">Zipcode</label>
+      <input type="text" [(ngModel)]="zipCode" name="zipCode" class="form-control" placeholder="Zipcode"><br>
+  
+      <label for="password">Password</label>
+      <input type="password" [(ngModel)]="password" name="password" class="form-control" placeholder="Password"><br>
+  
+      <label for="confirm">Confirm Password</label>
+      <input type="password" [(ngModel)]="confirm" name="confirm" class="form-control" placeholder="Confirm Password"><br>
+  
+      <p style="text-align: left; margin-bottom: 10px;">
+        * Must be at least 16 characters <br>
+        * Must contain an upper case character <br>
+        * Must contain a lower case character <br>
+        * Must contain at least one number <br>
+        * Must contain at least one special character
+      </p>
+  
+      <div id="submit-buttons">
+        <button type="submit" class="btn btn-primary">Create New Account</button>
+        <a class="btn btn-secondary" href="/login">Login Instead</a>        
+      </div>
+    </form>
+  </div>
+  

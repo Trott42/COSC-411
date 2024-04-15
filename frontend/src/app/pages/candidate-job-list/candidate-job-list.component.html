@@ -1,9 +1,5 @@
 @for (job of jobList; track job.jobTitle) {
   <app-job-posting
-  [jobTitle]=job.jobTitle
-  [location]=job.location
-  [datePosted]=job.datePosted
-  [showButton]=job.showButton
-  [jobDesc]=job.jobDesc>
+  [showButton]=job.showButton>
   </app-job-posting>
 }

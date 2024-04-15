@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+
 @Service
 public class CandidateService implements ICandidateService {
     @Autowired
@@ -23,7 +25,7 @@ public class CandidateService implements ICandidateService {
         candidate.setAddress(candidateDTO.getAddress());
         candidate.setCity(candidateDTO.getCity());
         candidate.setZipCode(candidateDTO.getZipcode());
-        candidate.setCreateDate(candidateDTO.getCreateDate());
+        candidate.setCreateDate(LocalDate.now());
         candidate.setHashedPassword(new BCryptPasswordEncoder().encode(candidateDTO.getHashedPassword()));
         candidateRepository.save(candidate);
     }

@@ -1,31 +1,36 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { CreateAccount } from '../model/user/CreateAccount';
-const BASE_URL = ['http://localhost:8080/']
+import { Job } from '../model/Job';
+const BASE_URL = ['http://localhost:8080/api']
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class DataService {
 
   constructor(private http: HttpClient) { }
-  login(loginRequest: any): Observable<any> {
-    return this.http.post(BASE_URL + "authenticate", loginRequest)
+  candidateLogin(loginRequest: any): Observable<any> {
+    return this.http.post(BASE_URL + "/candidates/authenticate", loginRequest)
+  }
+
+  employeeLogin(loginRequest: any): Observable<any> {
+    return this.http.post(BASE_URL + "/employees/authenticate", loginRequest)
   }
 
   signup(signupRequest: any): Observable<any> {
-    return this.http.post(BASE_URL + "sign-up", signupRequest)
+    return this.http.post(BASE_URL + "/candidates/candidate", signupRequest)
   }
 
-  createOrder(createOrderRequest: any): Observable<any> {
-    return this.http.post(BASE_URL + "create-order", createOrderRequest)
+  getAllJobs(): Observable<any> {
+    return this.http.get(BASE_URL + "/jobs/job");
   }
+
   getOrder(getOrderRequest: any): Observable<any> {
     const params = {
       email: getOrderRequest.email,
       orderNumber: getOrderRequest.orderNumber
     };
-    return this.http.get(BASE_URL + "get-order", {params});
+    return this.http.get<Job[]>(BASE_URL + "get-order", {params});
   }
   private createAuthorizationHeader() {
     const jwtToken = localStorage.getItem('JWT');

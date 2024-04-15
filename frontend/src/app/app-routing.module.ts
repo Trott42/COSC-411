@@ -6,6 +6,8 @@ import { EmployerLoginComponent } from './pages/employer-login/employer-login.co
 import { AboutBodyComponent } from './components/about-body/about-body.component';
 import { CandidateJobListComponent } from './pages/candidate-job-list/candidate-job-list.component';
 import { CandidateDashboardComponent } from './pages/candidate-dashboard/candidate-dashboard.component';
+import { RegisterComponent } from './components/register/register.component';
+import { CandidateRegisterComponent } from './pages/candidate-register/candidate-register.component';
 
 const routes: Routes = [
   { path: 'home', component: HomePageComponent },
@@ -14,6 +16,7 @@ const routes: Routes = [
   { path: 'employer-login', component: EmployerLoginComponent },
   { path: 'job-list', component: CandidateJobListComponent },
   { path: 'dashboard', component: CandidateDashboardComponent },
+  { path: 'register', component: CandidateRegisterComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', redirectTo: 'home', pathMatch: 'full' }
 ];

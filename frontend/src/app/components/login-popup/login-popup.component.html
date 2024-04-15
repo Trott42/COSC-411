@@ -1,13 +1,15 @@
 <div id="container">
   <span><ng-content></ng-content></span>
-  <form id="login" action="" type="submit" method="post">
-    <input class="text-input" type="text" name="Username"><br>
-    <p>Username</p>
-    <input class="text-input" type="password" name="Password"><br>
-    <p>Password</p>
+  <form (ngSubmit)="onClickSubmit()">
+    <label for="email">Email</label>
+    <input type="text" [(ngModel)]="email" name="email" class="form-control" placeholder="Email"><br>
+
+    <label for="password">Password</label>
+    <input type="password" [(ngModel)]="hashedPassword" name="password" class="form-control" placeholder="Password"><br>
+
     <div id="submit-buttons">
-      <input type="submit" value="Login">
-      <button>Sign Up</button>
+      <button type="submit" class="btn btn-primary">Login</button> 
+      <a class="btn btn-secondary" href="/register">Sign Up</a>
     </div>
   </form>
 </div>

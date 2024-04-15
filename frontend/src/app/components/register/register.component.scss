@@ -1,0 +1,72 @@
+$red: #FD1F4A;
+$yellow: #FBBD0D;
+$black: #2D2C2E;
+$white: #FAF5E6;
+
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 42px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 27px;
+  border-radius: 16px;
+  width: 450px;
+  height: 1258px;
+  background: $red;
+}
+
+#submit-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+span {
+  text-align: center;
+  color: $white;
+  font-style: italic;
+  font-size: 42px;
+}
+
+form {
+  color: $white;
+}
+
+.text-input {
+  padding: 6px;
+  outline-width: 0;
+  border: none;
+  border-bottom: 2px solid $white;
+  width: 100%;
+  background: none;
+}
+
+input[type="submit"] {
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: none;
+  border-radius: 16px;
+  font-size: 16px;
+  background: $yellow;
+  color: $black;
+}
+
+input[type="submit"]:hover {
+  background: $black;
+  color: $white;
+  transition: 300ms;
+}
+
+input[type="submit"]:not(:hover) {
+  transition: 300ms;
+}
+
+button {
+  margin: 16px;
+}

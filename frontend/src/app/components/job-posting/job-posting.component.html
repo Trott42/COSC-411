@@ -1,16 +1,27 @@
 <div id="container">
-    <div id="job-content">
-        <span id="job-title">{{jobTitle}}</span>
+    <div id="job-content" *ngFor="let jobPosting of job" >
+        <span id="job-title">{{ jobPosting.jobTitle }}</span>
         <div id="hr"></div>
-        <span id="location">{{location}}</span>
+        <span id="location">{{ jobPosting.location }}</span>
     </div>
-    <div id="application-details">
-        <span id="date-posted">{{datePosted}}</span>
-        @if (showButton) {
+    <div id="application-details" *ngFor="let jobPosting of job">
+        <span id="date-posted">{{ jobPosting.createDate }}</span>
+        
           <button (click)="sidebarService.show()">Apply</button>
-        }
+        
     </div>
+    <div *ngFor="let jobPosting of job">
     @if (sidebarService.visible) {
-      <app-sidebar>{{jobDesc}}</app-sidebar>
+     
+      <app-sidebar>  <h1>Description</h1> 
+        
+        {{jobPosting.jobDescription}}
+
+        <h1>Qualifications</h1> 
+
+        {{jobPosting.jobRequirements}} <br>
+      
+      </app-sidebar>
     }
+  </div>
 </div>
