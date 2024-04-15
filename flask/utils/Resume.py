@@ -2,6 +2,7 @@ import os
 import re
 import docx2txt
 import nltk
+import datetime as dt
 from job_data import SKILL_LIST, SCHOOL_DICT
 from pdfminer.high_level import extract_text
 
@@ -25,7 +26,7 @@ class Resume:
                 "email": email
             },
             "skills": skills,
-            "education": school,
+            "education": school
         }
         
     def extract_text(self) -> str:
@@ -118,3 +119,9 @@ class Resume:
                             return candidate_school
         
         return candidate_school
+      
+    def __get_experience(self, txt: str) -> tuple[int, int]:
+        month = dt.datetime.today().month
+        year = dt.datetime.today().year
+        
+        EXPERIENCE_PATTERN = re.compile(r"")

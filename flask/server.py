@@ -6,7 +6,6 @@ def create_app() -> Flask:
     app = Flask(__name__)
     app.register_blueprint(scan_resume_controller, url_prefix='/ml')
     
-    FRONTEND_URL = "http://localhost:4200/"
     CORS(app, resources={"/ml/*": {"origins": "*"}})
     
     return app
