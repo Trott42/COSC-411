@@ -1,8 +1,7 @@
 from flask import jsonify
+from utils import Resume
 
-def scan_resume():
-    response = {
-        "results": "I scanned It!"
-    }
+def scan_resume(resume_file: str):
+    response = Resume.Resume(resume_file)
     
     return jsonify(response)
