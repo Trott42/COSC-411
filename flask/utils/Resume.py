@@ -97,7 +97,8 @@ class Resume:
       
     def __get_school(self, txt: str) -> dict[str]:
         candidate_school = {
-            "none": 1
+            "school": "none",
+            "score": 1
         }
         uni_keywords = set(["University", "College", "Academy"])
         
@@ -111,7 +112,8 @@ class Resume:
                     for school in SCHOOL_DICT:
                         if school in line:
                             candidate_school = {
-                                school: SCHOOL_DICT[school]
+                                "school": school,
+                                "score": SCHOOL_DICT[school]
                             }
                             return candidate_school
         

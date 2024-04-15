@@ -1,7 +1,7 @@
 from flask import jsonify
 from utils import Resume
 
-def calc_score(resume: Resume) -> float:
+def calc_score(resume: Resume) -> int:
     """
     remember to change this to score every skill listed in the job description
     """
@@ -9,9 +9,7 @@ def calc_score(resume: Resume) -> float:
     
     try:
         skill_score = res_dict["skills"]
-        school_data = res_dict["education"]
-        school_name = school_data.keys()[0]
-        school_score = school_data[school_name]
+        school_score = res_dict["education"]["score"]
         
         #why is their job dependent on their skills and education? I don't know! Stop asking!
         return skill_score - school_score
