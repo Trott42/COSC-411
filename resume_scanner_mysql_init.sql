@@ -33,7 +33,8 @@ CREATE TABLE APPLICATION (
     EmpID INT,
     Date_Submitted DATE,
     Date_Updated DATE,
-    Application_Status VARCHAR(50)
+    Application_Status VARCHAR(50),
+    UserEmail VARCHAR(255) UNIQUE
 );
 
 CREATE TABLE RESUME (
