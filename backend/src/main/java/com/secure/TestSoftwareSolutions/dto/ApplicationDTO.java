@@ -8,7 +8,7 @@ import java.time.LocalDate;
 
 public class ApplicationDTO {
     private Long ApplicationId;
-    private long candidateId;
+    private Long  candidateId;
     private long resumeId;
     private Long employeeId;
 
@@ -27,11 +27,11 @@ public class ApplicationDTO {
         ApplicationId = applicationId;
     }
 
-    public long getCandidateId() {
+    public Long  getCandidateId() {
         return candidateId;
     }
 
-    public void setCandidateId(long candidateId) {
+    public void setCandidateId(Long  candidateId) {
         this.candidateId = candidateId;
     }
 

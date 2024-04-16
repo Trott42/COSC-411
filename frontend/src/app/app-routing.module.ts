@@ -10,6 +10,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { CandidateRegisterComponent } from './pages/candidate-register/candidate-register.component';
 import { EmployeeDashboardComponent } from './pages/employee-dashboard/employee-dashboard.component';
 import { ViewAllApplicantsComponent } from './pages/view-all-applicants/view-all-applicants.component';
+import { AuthService } from './auth.service';
 
 const routes: Routes = [
   { path: 'home', component: HomePageComponent },
@@ -17,7 +18,7 @@ const routes: Routes = [
   { path: 'login', component: CandidateLoginComponent },
   { path: 'employer-login', component: EmployerLoginComponent },
   { path: 'job-list', component: CandidateJobListComponent },
-  { path: 'dashboard', component: CandidateDashboardComponent },
+  { path: 'dashboard', component: CandidateDashboardComponent,canActivate: [AuthService] },
   { path: 'register', component: CandidateRegisterComponent },
   { path: 'employee-dashboard', component: EmployeeDashboardComponent }, 
   { path: 'view-applicants', component: ViewAllApplicantsComponent  },

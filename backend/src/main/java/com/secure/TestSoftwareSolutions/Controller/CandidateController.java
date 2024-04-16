@@ -6,6 +6,7 @@ import com.secure.TestSoftwareSolutions.dto.AuthenticationResponse;
 import com.secure.TestSoftwareSolutions.dto.CandidateDTO;
 import com.secure.TestSoftwareSolutions.services.application.CandidateService;
 import com.secure.TestSoftwareSolutions.services.application.Interfaces.ICandidateService;
+import com.secure.TestSoftwareSolutions.services.jwt.CustomUserDetails;
 import com.secure.TestSoftwareSolutions.services.jwt.UserDetailsServiceImpl;
 import com.secure.TestSoftwareSolutions.util.JwtUtil;
 import jakarta.servlet.http.HttpServletResponse;
@@ -18,10 +19,7 @@ import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 
@@ -57,10 +55,21 @@ public class CandidateController {
         }
         boolean employee=false;
         final UserDetails userDetails = userDetailsService.loadUserByUsername(candidateDTO.getEmail());
+        Long candidateId = ((CustomUserDetails) userDetails).getCandidateId();
 
         final String jwt = jwtUtil.generateToken(userDetails.getUsername());
 
-        return new AuthenticationResponse(jwt);
+        return new AuthenticationResponse(jwt,candidateId);
 
+    }
+
+    @GetMapping("/candidate")
+    public ResponseEntity<CandidateDTO> getCandidatebyId(
+            @RequestParam Long candidateId
+    ) {
+        // Call the service to get the order details
+        CandidateDTO candidateDTO = CandidateService.getCandidatebyId(candidateId);
+
+        return new ResponseEntity<>(candidateDTO, HttpStatus.OK);
     }
 }

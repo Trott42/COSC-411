@@ -7,5 +7,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface CandidateRepository extends ListCrudRepository<Candidate, Integer> {
     Candidate findFirstByEmail(String email);
+    Candidate findFirstBycandidateId(Long candidateId);
 
 }

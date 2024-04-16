@@ -8,5 +8,6 @@ export class Candidate {
     zipCode: number=0;
     createDate: string=""; // You might want to change the type to Date if you plan to work with dates
     hashedPassword: string="";
+    candidateId: number=0;
   }
   

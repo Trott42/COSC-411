@@ -9,7 +9,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SidebarService } from './service/sidebar.service';
 import { CandidateJobListComponent } from './pages/candidate-job-list/candidate-job-list.component';
-
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,8 @@ import { CandidateJobListComponent } from './pages/candidate-job-list/candidate-
     HttpClientModule,
     HeaderComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    CommonModule
   ],
   providers: [SidebarService],
   bootstrap: [AppComponent]

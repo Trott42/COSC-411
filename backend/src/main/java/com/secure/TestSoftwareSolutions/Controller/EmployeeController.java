@@ -1,11 +1,9 @@
 package com.secure.TestSoftwareSolutions.Controller;
 
-import com.secure.TestSoftwareSolutions.Repository.CandidateRepository;
 import com.secure.TestSoftwareSolutions.dto.AuthenticationResponse;
-import com.secure.TestSoftwareSolutions.dto.CandidateDTO;
 import com.secure.TestSoftwareSolutions.dto.EmployeeDTO;
-import com.secure.TestSoftwareSolutions.services.application.Interfaces.ICandidateService;
 import com.secure.TestSoftwareSolutions.services.application.Interfaces.IEmployeeService;
+import com.secure.TestSoftwareSolutions.services.jwt.CustomUserDetails;
 import com.secure.TestSoftwareSolutions.services.jwt.UserDetailsServiceImpl;
 import com.secure.TestSoftwareSolutions.util.JwtUtil;
 import jakarta.servlet.http.HttpServletResponse;
@@ -51,10 +49,10 @@ public class EmployeeController {
         }
 
         final UserDetails userDetails = userDetailsService.loadUserByUsername(employeeDTO.getEmail());
-
+        Long employeeId = ((CustomUserDetails) userDetails).getCandidateId();
         final String jwt = jwtUtil.generateToken(userDetails.getUsername());
 
-        return new AuthenticationResponse(jwt);
+        return new AuthenticationResponse(jwt, employeeId);
 
     }
 }

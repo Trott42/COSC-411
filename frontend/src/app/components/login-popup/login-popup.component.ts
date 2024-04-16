@@ -17,6 +17,7 @@ export class LoginPopupComponent implements OnInit {
   submitted = false;
   email: string = "";
   hashedPassword: string = "";
+  candidateId:number=0;
   value = "";
   public account: Candidate[] | undefined;
   public account2: Candidate = new Candidate();
@@ -46,8 +47,13 @@ export class LoginPopupComponent implements OnInit {
         this.userService.employeeLogin(this.account2).subscribe((response) => {
             if (response.jwtToken) {
               const jwtToken = response.jwtToken;
+              let candidateId = response.candidateId;
+              let name=response.email;
+              console.log("saaaaaaaa",name);
               localStorage.setItem('JWT', jwtToken);
               localStorage.setItem('EMAIL', this.email);
+              localStorage.setItem('CANDIDATEID', candidateId);
+              localStorage.setItem('NAME', name);
               this.router.navigateByUrl('employee-dashboard');
             }
           })
@@ -56,8 +62,13 @@ export class LoginPopupComponent implements OnInit {
         this.userService.candidateLogin(this.account2).subscribe((response) => {
             if (response.jwtToken) {
               const jwtToken = response.jwtToken;
+              let candidateId = response.candidateId;
+              let name=response.fname;
+              console.log("Testa ",candidateId);
               localStorage.setItem('JWT', jwtToken);
+              localStorage.setItem('CANDIDATEID', candidateId);
               localStorage.setItem('EMAIL', this.email);
+              localStorage.setItem('NAME', name);
               this.router.navigateByUrl('dashboard');
             }
           })

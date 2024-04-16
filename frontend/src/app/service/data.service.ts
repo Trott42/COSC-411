@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Job } from '../model/Job';
+import { Application } from '../model/Application';
 const BASE_URL = ['http://localhost:8080/api']
 @Injectable({
   providedIn: 'root'
@@ -30,13 +31,24 @@ export class DataService {
   getAllApplications(): Observable<any> {
     return this.http.get(BASE_URL + "/applications/apply");
   }
-
-  getOrder(getOrderRequest: any): Observable<any> {
+  getCandidatebyId(getOrderRequest: any): Observable<any> {
     const params = {
-      email: getOrderRequest.email,
-      orderNumber: getOrderRequest.orderNumber
+      candidateId: getOrderRequest.candidateId,
     };
-    return this.http.get<Job[]>(BASE_URL + "get-order", {params});
+    return this.http.get<Job[]>(BASE_URL + "/candidates/candidate", {params});
+  }
+  getApplicationByCandidateId(getOrderRequest: any): Observable<any> {
+    const params = {
+      candidateId: getOrderRequest.candidateId,
+    };
+    return this.http.get<Application[]>(BASE_URL + "/applications/apply-get", {params});
+  }
+
+  getJobById(getOrderRequest: any): Observable<any> {
+    const params = {
+      jobId: getOrderRequest.jobId,
+    };
+    return this.http.get<Job[]>(BASE_URL + "/jobs/job-get", {params});
   }
   private createAuthorizationHeader() {
     const jwtToken = localStorage.getItem('JWT');

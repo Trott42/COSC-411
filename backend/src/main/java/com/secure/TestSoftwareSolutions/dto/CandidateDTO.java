@@ -53,7 +53,7 @@ public class CandidateDTO {
     public void setCreateDate(LocalDate createDate){this.createDate=createDate;}
     public void setCity(String city){this.city=city;}
     public void setZipCode(int zipCode){this.zipCode=zipCode;}
-    public long getCandidateId() {return candidateId;}
+    public Long getCandidateId() {return candidateId;}
 
     public void setCandidateId(Long candidateId) {
         this.candidateId = candidateId;

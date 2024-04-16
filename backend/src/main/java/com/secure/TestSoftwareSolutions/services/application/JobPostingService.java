@@ -1,5 +1,6 @@
 package com.secure.TestSoftwareSolutions.services.application;
 
+import com.secure.TestSoftwareSolutions.Models.Application;
 import com.secure.TestSoftwareSolutions.Models.Job;
 import com.secure.TestSoftwareSolutions.Repository.JobRepository;
 import com.secure.TestSoftwareSolutions.dto.JobDTO;
@@ -33,6 +34,20 @@ public class JobPostingService implements IJobPostingService {
                 .map(client -> map(client))
                 .toList();
     }
+
+    @Override
+    public JobDTO getJobById(Long jobId) {
+        Job jobPosting= jobRepository.findFirstByjobId(jobId);
+        JobDTO jobDTO=new JobDTO();
+        jobDTO.setJobId(jobPosting.getJobId());
+        jobDTO.setJobTitle(jobPosting.getJobTitle());
+        jobDTO.setJobDescription(jobPosting.getJobDescription());
+        jobDTO.setJobRequirements(jobPosting.getJobRequirements());
+        jobDTO.setLocation(jobPosting.getLocation());
+        jobDTO.setCreateDate(jobPosting.getCreateDate());
+        return jobDTO;
+    }
+
     public JobDTO map(Job jobPosting) {
         JobDTO jobDTO=new JobDTO();
         jobDTO.setJobId(jobPosting.getJobId());

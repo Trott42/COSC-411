@@ -1,0 +1,48 @@
+$red: #FD1F4A;
+$yellow: #FBBD0D;
+$black: #2D2C2E;
+$white: #FAF5E6;
+
+#screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: $black;
+  opacity: 50%;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+#container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-flow: column;
+  height: 100vh;
+  width: 500px;
+  background-color: $white;
+}
+
+#meta {
+  display: flex;
+  align-items: flex-start;
+  background-color: $red;
+}
+
+#mini-navbar {
+  border-top: 3px solid $white;
+  background-color: $red;
+  height: 26px;
+}
+
+#content {
+  padding: 20px;
+}
+
+img {
+  height: 42px;
+}

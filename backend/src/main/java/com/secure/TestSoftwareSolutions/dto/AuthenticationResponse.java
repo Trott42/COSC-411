@@ -1,5 +1,5 @@
 package com.secure.TestSoftwareSolutions.dto;
 
-public record AuthenticationResponse(String jwtToken) {
+public record AuthenticationResponse(String jwtToken, Long candidateId) {
 
 }

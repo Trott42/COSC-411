@@ -4,4 +4,6 @@ import com.secure.TestSoftwareSolutions.dto.CandidateDTO;
 
 public interface ICandidateService {
     void createCandidate(CandidateDTO candidateDTO);
+
+    CandidateDTO getCandidatebyId(Long candidateId);
 }

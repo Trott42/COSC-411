@@ -11,7 +11,7 @@ public class Application {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long ApplicationId;
-    private long candidateId;
+    private Long candidateId;
     private long resumeId;
     private Long employeeId;
 
@@ -30,11 +30,11 @@ public class Application {
         ApplicationId = applicationId;
     }
 
-    public long getCandidateId() {
+    public Long  getCandidateId() {
         return candidateId;
     }
 
-    public void setCandidateId(long candidateId) {
+    public void setCandidateId(Long candidateId) {
         this.candidateId = candidateId;
     }
 

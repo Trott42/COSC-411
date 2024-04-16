@@ -31,14 +31,14 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             if(employeeUser == null){
                 throw new UsernameNotFoundException("User not found",null);
             }
-            return new org.springframework.security.core.userdetails.User(employeeUser.getEmail(), employeeUser.getHashedPassword(), new ArrayList<>());
+            return new CustomUserDetails(employeeUser.getEmail(), employeeUser.getHashedPassword(), new ArrayList<>(),employeeUser.getEmployeeId());
         }
         else{
             Candidate candidateUser = userRepository.findFirstByEmail(email);
             if(candidateUser == null){
                 throw new UsernameNotFoundException("User not found",null);
             }
-            return new org.springframework.security.core.userdetails.User(candidateUser.getEmail(), candidateUser.getHashedPassword(), new ArrayList<>());
+            return new CustomUserDetails(candidateUser.getEmail(), candidateUser.getHashedPassword(), new ArrayList<>(),candidateUser.getCandidateId());
         }
 
     }

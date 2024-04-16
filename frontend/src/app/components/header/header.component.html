@@ -1,8 +1,18 @@
 <div id="container">
-    <div id="title">
-        <a routerLink="/home"><img src="../../assets/TEST-logo.svg" alt="T.E.S.T."></a>
-        <p><i>Software Solutions</i></p>
-    </div>
-  <a routerLink="login"><button class="login">Log In</button></a>
-  <a routerLink="employer-login"><button class="Employer-login">Employer Log in</button></a>
+  <div id="title">
+      <a href="/home"><img src="../../assets/TEST-logo.svg" alt="T.E.S.T." href="home"></a>
+      <p><i>Software Solutions</i></p>
+  </div>
+  <!-- Check if candidateId exists in local storage -->
+  <ng-container *ngIf="this.checkLocalStorage() !== false; else loggedIn">
+      <!-- CandidateId exists, show appropriate buttons -->
+      <div>Welcome {{name}}</div>
+      <button class="logout" (click)="logout()">Logout</button>
+  </ng-container>
+  <!-- If candidateId doesn't exist, show login buttons -->
+  <ng-template #loggedIn>
+      <a  href="/login"><button class="login">Log In</button></a> 
+      <span></span>
+      <a href="/employer-login"><button class="Employer-login">Employer Log In</button></a> 
+  </ng-template>
 </div>

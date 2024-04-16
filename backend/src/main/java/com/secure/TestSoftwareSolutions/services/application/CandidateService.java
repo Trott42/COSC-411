@@ -30,6 +30,20 @@ public class CandidateService implements ICandidateService {
         candidateRepository.save(candidate);
     }
 
+    @Override
+    public CandidateDTO getCandidatebyId(Long candidateId) {
+        Candidate candidate= candidateRepository.findFirstBycandidateId(candidateId);
+        CandidateDTO candidateDTO=new CandidateDTO();
+        candidateDTO.setFName(candidate.getFName());
+        candidateDTO.setLName(candidate.getLName());
+        candidateDTO.setEmail(candidate.getEmail());
+        candidateDTO.setPhone(candidate.getPhone());
+        candidateDTO.setAddress(candidate.getAddress());
+        candidateDTO.setCity(candidate.getCity());
+        candidateDTO.setZipCode(candidate.getZipcode());
+        return candidateDTO;
+
+    }
 
 
 }

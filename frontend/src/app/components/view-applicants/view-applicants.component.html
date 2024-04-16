@@ -1,14 +1,58 @@
 <div id="container">
-    <div id="job-content" *ngFor="let app of application" >
-        Candidate ID:
-        <span id="job-title">{{ app.candidateId }}</span>
-        Application Status:
-        <span id="location">{{ app.applicationStatus }}</span>
-    </div>
-    <div id="application-details" *ngFor="let app of application">
-        <span id="date-posted">{{ app.submittedDate }}</span>
+  <table>
+    <thead>
+      <tr>
+        <th>Candidate ID</th>
+        &nbsp;
+        <th>Application Status</th>
+        &nbsp;
+        <th>Name</th>
+        &nbsp;
+        <th>Submitted Date</th>
+        &nbsp;
+        <th>Actions</th>
+        &nbsp;
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Iterate over each application -->
+      <tr *ngFor="let app of application; let i = index">
+        <!-- Display candidate ID -->
+        <td>{{ app.candidateId }}</td>
+        &nbsp;
+        <!-- Display application status -->
+        <td>{{ app.applicationStatus }}</td>
+        &nbsp;
+        <!-- Display candidate name -->
+        <td>{{ fname[i] }} {{ lname[i] }}</td>
+        &nbsp;
+        <!-- Display submitted date -->
+        <td>{{ app.submittedDate }}</td>
+        &nbsp;
+        <!-- Display action buttons -->
+        <td>
+          <button (click)="sidebarService.show2(email[i],phone[i],address[i],city[i],zipcode[i], i)">View Applicant</button>
+
         
-          <button >View Applicant</button>
-        
-    </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
+<app-sidebar2 *ngIf="sidebarService.visible">
+    <h1>Candidate Info:</h1> 
+    {{ sidebarService.selectedEmail }}
+    <br>
+    {{ sidebarService.selectedPhone }}
+    <br>
+    {{ sidebarService.selectedAddress }}
+    <br>
+    {{ sidebarService.selectedCity }}
+    <br>
+    {{ sidebarService.selectedZipCode }}
+    <br>
+    <button style="background-color:red;">Reject</button>
+    &nbsp;
+    <button>Move Forward</button>
+  </app-sidebar2>
+  
