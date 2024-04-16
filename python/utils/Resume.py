@@ -129,26 +129,32 @@ class Resume:
         EXPERIENCE_PATTERN = re.compile(r"(.*((J(an(uary|\.?)|u(n(e|\.?)|l(y|\.?)))|Feb(ruary|\.?)|Ma(r(ch|\.?)|y)|A(pr(il|\.?)|ug(ust|\.?))|Sept|Nov|Dec(ember|\.?)|Oct(ober|\.?)).*\d{4}((T(O|o))?).*)(P(RESENT|resent))?)")
         YEAR_PATTERN = re.compile(r"((19|20)\d{2}|(P(RESENT|resent)))")
         
-        work_experience = []
-        experience_ranges = EXPERIENCE_PATTERN.findall(txt)
-        for ranges in experience_ranges:
-            work_experience.append(ranges[0])
-        
-        for experience in work_experience:
-            for job in JOB_LIST:
-                if job in experience.lower():
-                    years = YEAR_PATTERN.findall(experience)
-        
-        new_years = []
-        for i in range(len(years)):
-            if years[i][0].lower() != "present":
-                new_years.append(int(years[i][0]))
-            else:
-                new_years.append(int(year_to_date))
+        try:
+            work_experience = []
+            experience_ranges = EXPERIENCE_PATTERN.findall(txt)
+            for ranges in experience_ranges:
+                work_experience.append(ranges[0])
             
-        exp = {
-            "start_date": new_years[0], 
-            "end_date": new_years[1]
-        }
+            for experience in work_experience:
+                for job in JOB_LIST:
+                    if job in experience.lower():
+                        years = YEAR_PATTERN.findall(experience)
+            
+            new_years = []
+            for i in range(len(years)):
+                if years[i][0].lower() != "present":
+                    new_years.append(int(years[i][0]))
+                else:
+                    new_years.append(int(year_to_date))
+                
+            exp = {
+                "start_date": new_years[0], 
+                "end_date": new_years[1]
+            }
+        except Exception as e:
+            exp = {
+                "start_date": year_to_date,
+                "end_date": year_to_date
+            }
         
         return exp
