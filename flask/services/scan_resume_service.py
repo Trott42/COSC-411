@@ -22,5 +22,6 @@ def scan_resume(resume_file: str):
     resume_score = calc_score(resume)
     
     return jsonify({
-        resume.extract(): resume_score
+        "resume": resume.extract(),
+        "score": resume_score
     })
