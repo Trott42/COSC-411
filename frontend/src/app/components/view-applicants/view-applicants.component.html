@@ -1,0 +1,14 @@
+<div id="container">
+    <div id="job-content" *ngFor="let app of application" >
+        Candidate ID:
+        <span id="job-title">{{ app.candidateId }}</span>
+        Application Status:
+        <span id="location">{{ app.applicationStatus }}</span>
+    </div>
+    <div id="application-details" *ngFor="let app of application">
+        <span id="date-posted">{{ app.submittedDate }}</span>
+        
+          <button >View Applicant</button>
+        
+    </div>
+</div>

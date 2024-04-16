@@ -24,6 +24,12 @@ export class DataService {
   getAllJobs(): Observable<any> {
     return this.http.get(BASE_URL + "/jobs/job");
   }
+  createApplication(applicationRequest: any): Observable<any> {
+    return this.http.post(BASE_URL + "/applications/apply", applicationRequest)
+  }
+  getAllApplications(): Observable<any> {
+    return this.http.get(BASE_URL + "/applications/apply");
+  }
 
   getOrder(getOrderRequest: any): Observable<any> {
     const params = {

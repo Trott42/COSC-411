@@ -8,6 +8,8 @@ import { CandidateJobListComponent } from './pages/candidate-job-list/candidate-
 import { CandidateDashboardComponent } from './pages/candidate-dashboard/candidate-dashboard.component';
 import { RegisterComponent } from './components/register/register.component';
 import { CandidateRegisterComponent } from './pages/candidate-register/candidate-register.component';
+import { EmployeeDashboardComponent } from './pages/employee-dashboard/employee-dashboard.component';
+import { ViewAllApplicantsComponent } from './pages/view-all-applicants/view-all-applicants.component';
 
 const routes: Routes = [
   { path: 'home', component: HomePageComponent },
@@ -17,6 +19,8 @@ const routes: Routes = [
   { path: 'job-list', component: CandidateJobListComponent },
   { path: 'dashboard', component: CandidateDashboardComponent },
   { path: 'register', component: CandidateRegisterComponent },
+  { path: 'employee-dashboard', component: EmployeeDashboardComponent }, 
+  { path: 'view-applicants', component: ViewAllApplicantsComponent  },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', redirectTo: 'home', pathMatch: 'full' }
 ];

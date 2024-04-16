@@ -14,6 +14,8 @@ public class Application {
     private long candidateId;
     private long resumeId;
     private Long employeeId;
+
+    private Long jobId;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate submittedDate;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -74,5 +76,13 @@ public class Application {
 
     public void setApplicationStatus(String applicationStatus) {
         this.applicationStatus = applicationStatus;
+    }
+
+    public Long getJobId() {
+        return jobId;
+    }
+
+    public void setJobId(Long jobId) {
+        this.jobId = jobId;
     }
 }

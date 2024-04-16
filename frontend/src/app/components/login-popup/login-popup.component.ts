@@ -42,14 +42,26 @@ export class LoginPopupComponent implements OnInit {
   onClickSubmit(): void {
     this.account2.email = this.email!;
     this.account2.hashedPassword = this.hashedPassword!;
-    this.userService.candidateLogin(this.account2).subscribe((response) => {
-      if (response.jwtToken) {
-        const jwtToken = response.jwtToken;
-        localStorage.setItem('JWT', jwtToken);
-        localStorage.setItem('EMAIL', this.email);
-        this.router.navigateByUrl('dashboard');
-      }
-    })
+    if (this.email.endsWith('@testsoftwaresolutions.com')) {
+        this.userService.employeeLogin(this.account2).subscribe((response) => {
+            if (response.jwtToken) {
+              const jwtToken = response.jwtToken;
+              localStorage.setItem('JWT', jwtToken);
+              localStorage.setItem('EMAIL', this.email);
+              this.router.navigateByUrl('employee-dashboard');
+            }
+          })
+    }
+    else{
+        this.userService.candidateLogin(this.account2).subscribe((response) => {
+            if (response.jwtToken) {
+              const jwtToken = response.jwtToken;
+              localStorage.setItem('JWT', jwtToken);
+              localStorage.setItem('EMAIL', this.email);
+              this.router.navigateByUrl('dashboard');
+            }
+          })
+    }
     this.value = "Email or Password is invalid";
   }
 }

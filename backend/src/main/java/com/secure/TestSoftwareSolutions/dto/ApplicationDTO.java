@@ -5,15 +5,17 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 
-@Data
+
 public class ApplicationDTO {
     private Long ApplicationId;
     private long candidateId;
     private long resumeId;
     private Long employeeId;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+
+    private Long jobId;
+
     private LocalDate submittedDate;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+
     private LocalDate updateDate;
     private String applicationStatus;
 
@@ -71,5 +73,13 @@ public class ApplicationDTO {
 
     public void setApplicationStatus(String applicationStatus) {
         this.applicationStatus = applicationStatus;
+    }
+
+    public Long getJobId() {
+        return jobId;
+    }
+
+    public void setJobId(Long jobId) {
+        this.jobId = jobId;
     }
 }

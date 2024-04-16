@@ -1,7 +1,10 @@
-export class Orders{
-    orderName:string="";
-    price=0.0;
-    email:string="";
-    orderDate:string="";
-    orderNumber=null;
+export class Application{
+    applicationId: string="";
+    candidateId: string="";
+    employeeId: string="";
+    resumeId: string="";
+    submittedDate: string="";
+    applicationStatus: string="";
+    updateDate: string="";
+    jobId: string="";
 }
