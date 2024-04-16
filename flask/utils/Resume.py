@@ -3,7 +3,7 @@ import re
 import docx2txt
 import nltk
 import datetime as dt
-from job_data import SKILL_LIST, SCHOOL_DICT
+from job_data import JOB_LIST, SKILL_LIST, SCHOOL_DICT
 from pdfminer.high_level import extract_text
 
 class Resume:
@@ -18,6 +18,7 @@ class Resume:
         email = self.__get_email(resume_text)
         skills = self.__get_skills(resume_text)
         school = self.__get_school(resume_text)
+        experience = self.__get_experience(resume_text)
         
         return {
             "name": name,
@@ -26,7 +27,8 @@ class Resume:
                 "email": email
             },
             "skills": skills,
-            "education": school
+            "education": school,
+            "experience": experience
         }
         
     def extract_text(self) -> str:
@@ -120,8 +122,33 @@ class Resume:
         
         return candidate_school
       
-    def __get_experience(self, txt: str) -> tuple[int, int]:
-        month = dt.datetime.today().month
-        year = dt.datetime.today().year
+    def __get_experience(self, txt: str) -> dict[str]:
+        exp = {}
+      
+        year_to_date = int(dt.datetime.today().year)
+        EXPERIENCE_PATTERN = re.compile(r"(.*((J(an(uary|\.?)|u(n(e|\.?)|l(y|\.?)))|Feb(ruary|\.?)|Ma(r(ch|\.?)|y)|A(pr(il|\.?)|ug(ust|\.?))|Sept|Nov|Dec(ember|\.?)|Oct(ober|\.?)).*\d{4}((T(O|o))?).*)(P(RESENT|resent))?)")
+        YEAR_PATTERN = re.compile(r"((19|20)\d{2}|(P(RESENT|resent)))")
         
-        EXPERIENCE_PATTERN = re.compile(r"")
+        work_experience = []
+        experience_ranges = EXPERIENCE_PATTERN.findall(txt)
+        for ranges in experience_ranges:
+            work_experience.append(ranges[0])
+        
+        for experience in work_experience:
+            for job in JOB_LIST:
+                if job in experience.lower():
+                    years = YEAR_PATTERN.findall(experience)
+        
+        new_years = []
+        for i in range(len(years)):
+            if years[i][0].lower() != "present":
+                new_years.append(int(years[i][0]))
+            else:
+                new_years.append(int(year_to_date))
+            
+        exp = {
+            "start date": new_years[0], 
+            "end date": new_years[1]
+        }
+        
+        return exp
