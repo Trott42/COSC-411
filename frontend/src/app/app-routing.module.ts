@@ -23,6 +23,7 @@ const routes: Routes = [
   { path: 'register', component: CandidateRegisterComponent },
   { path: 'employee-dashboard', component: EmployeeDashboardComponent }, 
   { path: 'view-applicants', component: ViewAllApplicantsComponent  },
+  { path: 'resume', component: ApplicationComponent  },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', redirectTo: 'home', pathMatch: 'full' }
 ];

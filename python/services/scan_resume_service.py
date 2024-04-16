@@ -20,7 +20,7 @@ def calc_score(resume):
         return 0
 
 def scan_resume():
-    resume = Resume(r"C:\Users\16162\Downloads\Naveen_Suresh_Resume_2024_1.docx")
+    resume = Resume(r"Resume_Mohamed-Elarbi.pdf")
     resume_score = calc_score(resume)
     
     return jsonify({

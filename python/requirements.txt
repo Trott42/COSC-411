@@ -1,4 +1,5 @@
 flask
+flask_cors
 docx2txt
 nltk
 pdfminer.six
