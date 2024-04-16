@@ -5,6 +5,7 @@ import { CandidateLoginComponent } from './pages/candidate-login/candidate-login
 import { EmployerLoginComponent } from './pages/employer-login/employer-login.component';
 import { AboutBodyComponent } from './components/about-body/about-body.component';
 import { CandidateJobListComponent } from './pages/candidate-job-list/candidate-job-list.component';
+import { ApplicationComponent } from './pages/application/application.component';
 import { CandidateDashboardComponent } from './pages/candidate-dashboard/candidate-dashboard.component';
 import { RegisterComponent } from './components/register/register.component';
 import { CandidateRegisterComponent } from './pages/candidate-register/candidate-register.component';

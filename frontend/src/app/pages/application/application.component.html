@@ -1,0 +1,23 @@
+<h1>Resume data</h1>
+<h2>Score: {{resume_data.score}}</h2>
+<div>
+  {{resume_data.resume.name}} <br>
+  {{resume_data.resume.contact.phone}} <br>
+  {{resume_data.resume.contact.email}}
+</div>
+<div>
+  Years experience: {{years_worked}}<br>
+    Started: {{resume_data.resume.experience.start_date}} <br>
+    Ended: {{resume_data.resume.experience.end_date}}
+</div>
+<div>
+  School: {{resume_data.resume.education.school}}<br>
+  Ranked {{resume_data.resume.education.score}} in Michigan.
+</div>
+<div>
+  Skills <br>
+  @for (skill of resume_data.resume.skills; track skill) {
+    <span>{{skill}} | </span>
+  }
+</div>
+
