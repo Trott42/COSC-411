@@ -10,9 +10,9 @@ def calc_score(resume: Resume) -> int:
     try:
         skill_score = res_dict["skills"]
         school_score = res_dict["education"]["score"]
+        years_worked = res_dict["experience"]["start date"] - res_dict["experience"]["end date"]
         
-        #why is their job dependent on their skills and education? I don't know! Stop asking!
-        return skill_score - school_score
+        return (skill_score - school_score) * years_worked
     except KeyError as e:
         print("Was not able to properly parse resume data.\n" + e)
         return 0
@@ -22,5 +22,6 @@ def scan_resume(resume_file: str):
     resume_score = calc_score(resume)
     
     return jsonify({
-        resume.extract(): resume_score
+        "resume": resume.extract(),
+        "score": resume_score
     })
