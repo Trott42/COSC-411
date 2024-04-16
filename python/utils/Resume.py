@@ -86,15 +86,15 @@ class Resume:
 
         bigrams_trigrams = list(map(' '.join, nltk.everygrams(filtered_tokens, 2, 3)))
 
-        found_skills = set()
+        found_skills = []
 
         for token in filtered_tokens:
             if token.lower() in SKILL_LIST:
-                found_skills.add(token)
+                found_skills.append(token)
 
         for ngram in bigrams_trigrams:
             if ngram.lower() in SKILL_LIST:
-                found_skills.add(ngram)
+                found_skills.append(ngram)
 
         return found_skills
       
@@ -147,8 +147,8 @@ class Resume:
                 new_years.append(int(year_to_date))
             
         exp = {
-            "start date": new_years[0], 
-            "end date": new_years[1]
+            "start_date": new_years[0], 
+            "end_date": new_years[1]
         }
         
         return exp

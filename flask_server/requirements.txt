@@ -1,4 +1,0 @@
-flask
-docx2txt
-nltk
-pdfminer.six
