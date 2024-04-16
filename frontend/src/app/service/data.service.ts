@@ -44,6 +44,15 @@ export class DataService {
     return this.http.get<Application[]>(BASE_URL + "/applications/apply-get", {params});
   }
 
+  decision(getOrderRequest: any): Observable<any> {
+    const params = {
+      candidateId: getOrderRequest.candidateId,
+      applicationStatus:getOrderRequest.applicationStatus,
+      employeeId:getOrderRequest.employeeId
+    };
+    return this.http.get<Application[]>(BASE_URL + "/applications/decision", {params});
+  }
+
   getJobById(getOrderRequest: any): Observable<any> {
     const params = {
       jobId: getOrderRequest.jobId,

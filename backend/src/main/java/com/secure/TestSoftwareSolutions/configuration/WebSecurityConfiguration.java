@@ -33,6 +33,7 @@ public class WebSecurityConfiguration {
                 .requestMatchers("/api/candidates/authenticate","/api/employees/authenticate", "/api/employees/employee").permitAll()
                 .requestMatchers("/api/candidates/authenticate","/api/employees/authenticate", "/api/jobs/job").permitAll()
                 .requestMatchers("/api/candidates/authenticate","/api/employees/authenticate", "api/applications/apply-get").permitAll()
+                .requestMatchers("/api/candidates/authenticate","/api/employees/authenticate", "api/applications/decision").permitAll()
                 .requestMatchers("/api/candidates/authenticate","/api/employees/authenticate", "/api/jobs/job-get").permitAll()
                 .and()
                 .authorizeHttpRequests().requestMatchers("/api/**")

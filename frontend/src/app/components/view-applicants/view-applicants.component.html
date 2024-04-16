@@ -10,6 +10,8 @@
         &nbsp;
         <th>Submitted Date</th>
         &nbsp;
+        <th>Score</th>
+        &nbsp;
         <th>Actions</th>
         &nbsp;
       </tr>
@@ -29,9 +31,11 @@
         <!-- Display submitted date -->
         <td>{{ app.submittedDate }}</td>
         &nbsp;
+        <td>{{ score[i] }}</td>
+        &nbsp;
         <!-- Display action buttons -->
         <td>
-          <button (click)="sidebarService.show2(email[i],phone[i],address[i],city[i],zipcode[i], i)">View Applicant</button>
+          <button (click)="sidebarService.show2(candidateId[i],email[i],phone[i],address[i],city[i],zipcode[i], i)">View Applicant</button>
 
         
         </td>
@@ -41,6 +45,7 @@
 </div>
 <app-sidebar2 *ngIf="sidebarService.visible">
     <h1>Candidate Info:</h1> 
+    {{ sidebarService.selectedCandidateId }}
     {{ sidebarService.selectedEmail }}
     <br>
     {{ sidebarService.selectedPhone }}
@@ -51,7 +56,7 @@
     <br>
     {{ sidebarService.selectedZipCode }}
     <br>
-    <button style="background-color:red;">Reject</button>
+    <button (click)="reject()" style="background-color:red;">Reject</button>
     &nbsp;
     <button>Move Forward</button>
   </app-sidebar2>

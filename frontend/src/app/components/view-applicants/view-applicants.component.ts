@@ -25,22 +25,31 @@ export class ViewApplicantsComponent {
   public selectedAddress: string = ''; 
   public selectedCity: string = ''; 
   public selectedZipcode: string = ''; 
+  public selectedCandidateId: number = 0; 
   fname: string[] = [];
   lname: string[] = [];
   email: string[] = [];
+  candidateId: number[] = [];
   phone: string[] = [];
   address: string[] = [];
   city: string[] = [];
   zipcode: string[] = [];
+  score: string[]=["55.52","36.17"];
   constructor(public sidebarService: SidebarService,private formBuilder: FormBuilder,private dataService: DataService,private router: Router) {
     
 
   }
-  showCandidateEmail(email: string,phone:string,address:string, city:string ,zipcode:string, index: number) {
+  showCandidateEmail(candidateId:number,email: string,phone:string,address:string, city:string ,zipcode:string, index: number) {
     // Show the sidebar and pass the email and index
-    this.sidebarService.show2(email,phone,address,city,zipcode, index);
+    this.sidebarService.show2(candidateId,email,phone,address,city,zipcode, index);
   }
-  
+  reject():void{
+    this.dataService.decision(this.candidate).subscribe(
+      (response) => {
+
+
+      });
+  }
   ngOnInit(): void {
     this.dataService.getAllApplications()
       .subscribe(
@@ -63,6 +72,8 @@ export class ViewApplicantsComponent {
                 this.selectedCity = response.city;
                 this.zipcode[i]=response.zipcode;
                 this.selectedZipcode = response.zipCode;
+                this.candidateId[i]=response.candidateId;
+                this.selectedCandidateId=this.application[i].candidateId;
               },
               (error) => {
                 console.error(error);

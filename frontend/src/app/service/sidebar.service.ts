@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class SidebarService {
   visible = false;
+  selectedCandidateId: number = 0;
   selectedEmail: string = '';
   selectedPhone: string = '';
   selectedAddress: string = '';
@@ -13,6 +14,7 @@ export class SidebarService {
   selectedZipCode: string = '';
   selectedEmailIndex: number = -1;
 
+  selectedCandidateId$ = new BehaviorSubject<number>(0);
   selectedEmail$ = new BehaviorSubject<string>('');
   selectedPhone$ = new BehaviorSubject<string>('');
   selectedAddress$ = new BehaviorSubject<string>('');
@@ -23,7 +25,8 @@ export class SidebarService {
     this.visible = true;
   }
 
-  show2(email: string, phone: string, address: string, city: string, zipcode: string, index: number) {
+  show2(candidateId:number,email: string, phone: string, address: string, city: string, zipcode: string, index: number) {
+    this.selectedCandidateId=candidateId;
     this.visible = true;
     this.selectedEmail = email;
     this.selectedPhone = phone;
@@ -31,6 +34,7 @@ export class SidebarService {
     this.selectedCity = city;
     this.selectedZipCode = zipcode;
     this.selectedEmailIndex = index;
+    this.selectedCandidateId$.next(this.selectedCandidateId);
     this.selectedEmail$.next(this.selectedEmail);
     this.selectedPhone$.next(this.selectedPhone);
     this.selectedAddress$.next(this.selectedAddress);

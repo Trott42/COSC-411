@@ -54,6 +54,17 @@ public class ApplicationService implements IApplicationService {
         return applicationDTO;
     }
 
+    @Override
+    public ApplicationDTO decision(Long candidateId,String applicationStatus,Long employeeId) {
+        Application application= applicationRepository.findFirstBycandidateId(candidateId);
+        ApplicationDTO applicationDTO=new ApplicationDTO();
+        application.setApplicationStatus(applicationStatus);
+        application.setEmployeeId(employeeId);
+        applicationRepository.save(application);
+        applicationDTO.setApplicationStatus(application.getApplicationStatus());
+        return applicationDTO;
+    }
+
     public ApplicationDTO map(Application application) {
         ApplicationDTO applicationDTO=new ApplicationDTO();
         applicationDTO.setApplicationId(application.getApplicationId());

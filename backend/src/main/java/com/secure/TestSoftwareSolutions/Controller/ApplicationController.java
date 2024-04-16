@@ -48,4 +48,14 @@ public class ApplicationController {
 
         return new ResponseEntity<>(applicationDTO, HttpStatus.OK);
     }
+
+    @GetMapping("/decision")
+    public ResponseEntity<ApplicationDTO> decision(
+            @RequestParam Long candidateId,@RequestParam String applicationStatus,@RequestParam Long employeeId
+    ) {
+        // Call the service to get the order details
+        ApplicationDTO applicationDTO = applicationService.decision(candidateId,applicationStatus,employeeId);
+
+        return new ResponseEntity<>(applicationDTO, HttpStatus.OK);
+    }
 }

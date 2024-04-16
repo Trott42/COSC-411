@@ -77,7 +77,7 @@ onClickSubmit():void {
     (response) => {
       console.log('POST request successful:', response);
       localStorage.setItem("ACCOUNT","Account Created Successfully")
-      this.router.navigateByUrl('/dashboard');
+      this.router.navigateByUrl('/login');
     },
     (error) => {
       console.error('Error:', error);

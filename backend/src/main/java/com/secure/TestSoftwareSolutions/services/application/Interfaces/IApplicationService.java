@@ -11,4 +11,6 @@ public interface IApplicationService {
     List<ApplicationDTO> getApplication();
 
     ApplicationDTO getCandidateById(Long candidateId);
+
+    ApplicationDTO decision(Long candidateId,String applicationStatus,Long employeeId);
 }
