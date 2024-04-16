@@ -1,5 +1,5 @@
 from flask import jsonify
-from utils import Resume
+from flask_server.utils import Resume
 
 def calc_score(resume: Resume) -> int:
     """
